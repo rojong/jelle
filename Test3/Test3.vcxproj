@@ -41,8 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\jelle\Desktop\Spaceinvader\hge\hge181\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\jelle\Desktop\Spaceinvader\hge\hge181\lib\vc;$(LibraryPath)</LibraryPath>
+    <IncludePath>hge181\include;$(IncludePath)</IncludePath>
+    <LibraryPath>hge181\lib\vc;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
