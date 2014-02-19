@@ -9,6 +9,8 @@ bool mouseReleased = false;
 bool mousePressed = false;
 bool ballReleased = false;
 
+
+
 bool FrameFunc()
 {
 	bool lmouse = hge->Input_GetKeyState(HGEK_LBUTTON);
