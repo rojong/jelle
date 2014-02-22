@@ -1,48 +1,50 @@
-#include "Ball.h"
+#include "pin.h"
 
-HGE* Ball::hge = 0;
-Ball::Ball(){
+HGE* Pin::hge = 0;
+Pin::Pin(){
 	hge = hgeCreate(HGE_VERSION);
 
-	texture = hge->Texture_Load("Ball.jpg");
+	texture = hge->Texture_Load("Pin.jpg");
 	p_sprite = new hgeSprite(texture, 0, 0, 50, 50);
 	p_sprite->SetHotSpot(10, 10);
 }
- 
-Ball::~Ball()    
+
+Pin::~Pin()
 {
 	hge->Texture_Free(texture);
 	delete p_sprite;
-	hge -> Release();
+
+	hge->Release();
 }
 
-bool Ball::update(){
+bool Pin::update(){
 	position.x += velocity.x;
 	position.y += velocity.y;
 	bounding.Set(position.x, position.y, position.x + 50, position.y + 50);
 	return false;
 }
 
-void Ball::render(){
+void Pin::render(){
 	p_sprite->Render(position.x, position.y);
 }
 
-void Ball::setVelocity(hgeVector vel){
+void Pin::setVelocity(hgeVector vel){
 	velocity = vel;
 }
 
-hgeVector Ball::getVelocity(){
+hgeVector Pin::getVelocity(){
 	return velocity
 }
 
-void Ball::setPosition(hgeVector pos){
+void Pin::setPosition(hgeVector pos){
 	position = pos;
 }
 
-hgeVector Ball::getPosition(){
+hgeVector Pin::getPosition(){
 	return position;
 }
 
-hgeRect Ball::getBounding(){
+hgeRect Pin::getBounding()
+{
 	return bounding;
 }

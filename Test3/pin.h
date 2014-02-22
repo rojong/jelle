@@ -1,26 +1,23 @@
-#ifndef C_BALL_H
-#define C_BALL_H
+#ifndef C_PIN_H
+#define C_PIN_H
 #pragma once
 
 #include <hge.h>
 #include <hgesprite.h>
 #include <hgevector.h>
 
-
-class Ball
+class Pin
 {
 public:
-	Ball();
-	~Ball();
-
+	Pin();
+	~Pin();
+	hgeRect getBounding();
 	bool update();
 	void render();
 	void setVelocity(hgeVector velocity);
-	void setPosition(hgeVector position);
 	hgeVector getVelocity();
+	void setPosition(hgeVector position);
 	hgeVector getPosition();
-	hgeRect getBounding();
-	
 
 private:
 	static HGE*		hge;

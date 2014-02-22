@@ -1,14 +1,16 @@
 #include <hge.h>
 #include <hgesprite.h>
 #include <hgevector.h>
-#include "Ball.h"
+#include "ball.h"
+#include "pin.h"
 
 HGE*    hge = NULL;
 Ball* ball = NULL;
+Pin* pin = NULL;
 bool mouseReleased = false;
 bool mousePressed = false;
 bool ballReleased = false;
-
+const float wdif = 3.0;//Ball wdif times heavier than pin
 
 
 bool FrameFunc()
@@ -34,8 +36,13 @@ bool FrameFunc()
 		ball->setVelocity(velocity);
 		ballReleased = true;
 	}
-
+	// collision
+	if (ball->getBounding().Intersect(&pin->getBounding()))
+	{
+		pin->getVelocity
+	}
 	ball->update();
+	pin->update();
 	if (hge->Input_GetKeyState(HGEK_ESCAPE)) return true;
 	return false;
 }
@@ -45,6 +52,7 @@ bool RenderFunc()
 	hge->Gfx_BeginScene();
 	hge->Gfx_Clear(0);
 	ball->render();
+	pin->render();
 	hge->Gfx_EndScene();
 	return false;
 }
@@ -62,8 +70,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	if (hge->System_Initiate())
 	{
 		ball = new Ball();
+		pin = new Pin();
+		pin->setPosition(hgeVector(700, 300));
 		hge->System_Start();
 		delete ball;
+		delete pin;
 	}
 	else
 	{
