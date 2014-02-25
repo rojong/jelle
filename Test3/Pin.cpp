@@ -33,7 +33,7 @@ void Pin::setVelocity(hgeVector vel){
 }
 
 hgeVector Pin::getVelocity(){
-	return velocity
+	return velocity;
 }
 
 void Pin::setPosition(hgeVector pos){

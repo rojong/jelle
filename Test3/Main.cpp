@@ -39,7 +39,12 @@ bool FrameFunc()
 	// collision
 	if (ball->getBounding().Intersect(&pin->getBounding()))
 	{
-		pin->getVelocity
+		// pin moves velocity ball , ball moves wdif times slower
+		hgeVector velball;
+		velball = ball->getVelocity();
+		pin->setVelocity(velball);
+		ball->setVelocity(velball / wdif);
+		
 	}
 	ball->update();
 	pin->update();

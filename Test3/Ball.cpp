@@ -32,7 +32,7 @@ void Ball::setVelocity(hgeVector vel){
 }
 
 hgeVector Ball::getVelocity(){
-	return velocity
+	return velocity;
 }
 
 void Ball::setPosition(hgeVector pos){
